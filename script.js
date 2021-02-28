@@ -10,44 +10,64 @@ function generatePassword() {
   var characterOptions = "";
   var finalPassword = "";
 
-  var lengthOfPassword = parseInt(prompt("How long would you like your password to be?"))
+  var lengthOfPassword = parseInt(prompt("How many characters long would you like your password to be?"));
 
+  // if the length of the password is less than 8 characters it is void //
   if (lengthOfPassword < 8) {
     alert("Please select a length greater than 8");
     return;
   }
 
+  // if the length of the password is more than 128 characters it is void //
   if (lengthOfPassword > 128) {
     alert("Please select shorter number of characters");
     return;
   }
 
-  var useUppercase = confirm("would you like to use upper case letters?")
+  // fix bug: determine reponse if character length of password is cancel, or left empty
+
+  // if (lengthOfPassword === false) { 
+  // alert("Please select desired number of characters");
+  //return;
+ //}
+
+
+ // if the length of the password is less than 128 characters it is void //
+  var useUppercase = confirm("Confirm OK if you would like to use upper case letters in your password?")
   if (useUppercase === true) {
     characterOptions += upperCase
   }
 
-  var useLowercase = confirm("Would you like to use any lowercase?")
+  var useLowercase = confirm("Confirm OK if you would like to use lowercase letters in your password?")
   if (useLowercase === true) {
     characterOptions += lowerCase
   }
 
-  var useNumbers = confirm("Would you like to use any numbers?")
+  var useNumbers = confirm("Confirm OK if you would like to use numbers in your password?")
   if (useNumbers === true) {
     characterOptions += numbers
   }
 
-  var usespecialCharacter = confirm("Would you like to use any special characters?")
+  var usespecialCharacter = confirm("Confirm OK if you would like to use any special characters in your password?")
   if (usespecialCharacter === true) {
-    characterOptions += specialCharacter
+    characterOptions += specialCharacter 
   }
+
+  // fix bug: if no characters are selected (cancelled)
+   //   else {
+    //   alert("Please select at least one type of character")}
+  
 
   for (var i = 0; i <= lengthOfPassword; i++) {
     finalPassword += characterOptions[Math.floor(Math.random() * characterOptions.length)]
   }
-  return finalPassword;
-}
 
+  return finalPassword;
+
+  
+
+
+}
 
 
 
@@ -55,7 +75,7 @@ function generatePassword() {
 function writePassword() {
   var password = generatePassword();
 
-  /* build generatePassword funtion - it needs to be written before it's called. */
+  /* build generatePassword function - it needs to be written before it's called. */
 
   var passwordText = document.querySelector("#password");
 
@@ -69,7 +89,7 @@ function writePassword() {
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
 
-/* event listener paired with button in the HTML -
+/* event listener correlates with "Click" ID and button in the HTML -
 
 1st argument is click, second is write password
 
@@ -83,9 +103,6 @@ generateBtn.addEventListener("click", writePassword);
 Determine rules for automated output - CONDITIONAL STATEMENTS (IF / ELSE) STATEMENTS?
 - characters can only be 8 - 128 characters long
 - 1 lowercase, 1 upper case, 1 special, 1 numeric
-
-
-
 
 
 */
