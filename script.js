@@ -1,7 +1,10 @@
 // Assignment Code
 var generateBtn = document.querySelector("#generate");
 
+// Function
 function generatePassword() {
+
+  // Local variables defined 
   var lowerCase = "abcdefghijklmnopqrstuvwxyz";
   var upperCase = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
   var numbers = "1234567890";
@@ -21,6 +24,11 @@ function generatePassword() {
   // if the length of the password is more than 128 characters it is void //
   if (lengthOfPassword > 128) {
     alert("Please select shorter number of characters");
+    return;
+  }
+
+  if (lengthOfPassword !== "") {
+    alert("Please submit a length of characters");
     return;
   }
 
@@ -106,3 +114,5 @@ Determine rules for automated output - CONDITIONAL STATEMENTS (IF / ELSE) STATEM
 
 
 */
+
+//useful comment tips: https://www.w3schools.com/js/js_comments.asp
