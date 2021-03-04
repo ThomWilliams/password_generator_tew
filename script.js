@@ -1,11 +1,11 @@
 // Query Selector for Generate Button
 var generateBtn = document.querySelector("#generate");
 
-// Event listener - click to generate password process
+// Event listener - click to begin password generation process
 generateBtn.addEventListener("click", writePassword);
 
 
-//  1st Argument - Generate Password Function
+//  1ST ARGUMENT - Generate Password Function
 function generatePassword() {
 
   // Local variables defined 
@@ -17,7 +17,7 @@ function generatePassword() {
   var characterOptions = "";
   var finalPassword = "";
   
-  
+  // Length of Password - prompt asks for required numbers of numerical characters
   var lengthOfPassword = window.prompt("How many characters long would you like your password to be?");
 
   // if no length of password is in inputted or left blank, return to start
@@ -62,31 +62,31 @@ function generatePassword() {
     characterOptions += specialCharacter 
   }
 
-// If no characters at all are selected, return to start
+  // If no characters at all are selected, return to start
  if (!usespecialCharacter && !useNumbers && !useUppercase && !useLowercase) {
   alert("Please select at least one type of character");
   return finalPassword("");
-}
+  }
 
-
+  // For function uses iterator to defines length of password and random fucntion to randomise characters
   for (var i = 0; i <= lengthOfPassword; i++) {
     finalPassword += characterOptions[Math.floor(Math.random() * characterOptions.length)]
   }
 
+  // returns final password
   return finalPassword;
 
 }
 
 
-
-// Second Argument - Write password to the #password input ID
+// SECOND ARGUMENT - Writes password to the #password input ID
 function writePassword() {
   var password = generatePassword();
 
   // Query Selector for Password output
   var passwordText = document.querySelector("#password");
  
-  // Password displayed in Html
+  // Password displayed in Html document
   passwordText.value = password;
 
 }
