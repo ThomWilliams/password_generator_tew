@@ -23,18 +23,18 @@ function generatePassword() {
   // if no length of password is in inputted or left blank, return to start
   if (!lengthOfPassword) {
     alert("please enter a number of characters between 8 - 128");
-    return finalPassword("");
+    return finalPassword("")
   }
   // if length < 8 characters is in inputted, return to start
   if (lengthOfPassword < 8) {
-  alert("Please select a length greater than 8 characters");
-  return finalPassword("");
+    alert("Please select a length greater than 8 characters");
+    return finalPassword("")
   } 
 
   // if length > 128 characters is in inputted, return to start
   if (lengthOfPassword > 128) {
     alert("Please select a length less than 128 characters");
-    return finalPassword("");
+    return finalPassword("")
   }
 
 
@@ -65,7 +65,7 @@ function generatePassword() {
   // If no characters at all are selected, return to start
  if (!usespecialCharacter && !useNumbers && !useUppercase && !useLowercase) {
   alert("Please select at least one type of character");
-  return finalPassword("");
+  return finalPassword("")
   }
 
   // For function uses iterator to defines length of password and random fucntion to randomise characters
