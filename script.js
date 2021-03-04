@@ -1,7 +1,11 @@
-// Assignment Code
+// Query Selector for Generate Button
 var generateBtn = document.querySelector("#generate");
 
-// Function
+// Event listener - click to generate password process
+generateBtn.addEventListener("click", writePassword);
+
+
+//  1st Argument - Generate Password Function
 function generatePassword() {
 
   // Local variables defined 
@@ -17,62 +21,53 @@ function generatePassword() {
   var lengthOfPassword = window.prompt("How many characters long would you like your password to be?");
 
   // if no length of password is in inputted or left blank, return to start
-    if (!lengthOfPassword) {
-      alert("please enter a number of characters between 8 - 128");
-      return finalPassword("");
-    }
-// if length < 8 characters is in inputted, return to start
-    if (lengthOfPassword < 8) {
-     alert("Please select a length greater than 8 characters");
-     return finalPassword("");
-    } 
+  if (!lengthOfPassword) {
+    alert("please enter a number of characters between 8 - 128");
+    return finalPassword("");
+  }
+  // if length < 8 characters is in inputted, return to start
+  if (lengthOfPassword < 8) {
+  alert("Please select a length greater than 8 characters");
+  return finalPassword("");
+  } 
 
-    // if length > 128 characters is in inputted, return to start
-    if (lengthOfPassword > 128) {
-      alert("Please select a length less than 128 characters");
-      return finalPassword("");
-    }
-
-    // if special characters erroneously inputted, return to start
-    if (specialCharacter) {
-      alert("Please enter numerical values only");
-      return finalPassword("");
-    }
+  // if length > 128 characters is in inputted, return to start
+  if (lengthOfPassword > 128) {
+    alert("Please select a length less than 128 characters");
+    return finalPassword("");
+  }
 
 
-  // fix bug: determine reponse if character length of password is cancel, or left empty
-
-  // if (lengthOfPassword === false) { 
-  // alert("Please select desired number of characters");
-  //return;
- //}
-
-
- // if the length of the password is less than 128 characters it is void //
+ // Confirm if the user would like a password with Uppercase characters
   var useUppercase = confirm("Confirm OK if you would like to use upper case letters in your password?")
   if (useUppercase === true) {
     characterOptions += upperCase
   }
 
+  // Confirm if the user would like a password with lowercase characters
   var useLowercase = confirm("Confirm OK if you would like to use lowercase letters in your password?")
   if (useLowercase === true) {
     characterOptions += lowerCase
   }
 
+  // Confirm if the user would like a password with numbers
   var useNumbers = confirm("Confirm OK if you would like to use numbers in your password?")
   if (useNumbers === true) {
     characterOptions += numbers
   }
 
+  // Confirm if the user would like a password with special characters
   var usespecialCharacter = confirm("Confirm OK if you would like to use any special characters in your password?")
   if (usespecialCharacter === true) {
     characterOptions += specialCharacter 
   }
 
-  // fix bug: if no characters are selected (cancelled)
-   //   else {
-    //   alert("Please select at least one type of character")}
-  
+// If no characters at all are selected, return to start
+ if (!usespecialCharacter && !useNumbers && !useUppercase && !useLowercase) {
+  alert("Please select at least one type of character");
+  return finalPassword("");
+}
+
 
   for (var i = 0; i <= lengthOfPassword; i++) {
     finalPassword += characterOptions[Math.floor(Math.random() * characterOptions.length)]
@@ -80,47 +75,18 @@ function generatePassword() {
 
   return finalPassword;
 
-  
-
-
 }
 
 
 
-// Write password to the #password input
+// Second Argument - Write password to the #password input ID
 function writePassword() {
   var password = generatePassword();
 
-  /* build generatePassword function - it needs to be written before it's called. */
-
+  // Query Selector for Password output
   var passwordText = document.querySelector("#password");
-
+ 
+  // Password displayed in Html
   passwordText.value = password;
 
 }
-
-
-
-
-// Add event listener to generate button
-generateBtn.addEventListener("click", writePassword);
-
-/* event listener correlates with "Click" ID and button in the HTML -
-
-1st argument is click, second is write password
-
-
-/*
-
-
-
-
-
-Determine rules for automated output - CONDITIONAL STATEMENTS (IF / ELSE) STATEMENTS?
-- characters can only be 8 - 128 characters long
-- 1 lowercase, 1 upper case, 1 special, 1 numeric
-
-
-*/
-
-//useful comment tips: https://www.w3schools.com/js/js_comments.asp
