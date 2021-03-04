@@ -81,7 +81,7 @@ A Wave accessibility checker confirms the following features meet accessibility 
 
 A screenshot of both the desktop versions is provided in the assets Folder: 
 
-Desktop version: ![Desktop Screenshot](/Assets/Password_Generator_TEW_screenshot.png)
+Desktop version: ![Desktop Screenshot](Assets/Password_Generator_TEW_screenshot.png)
 
 
 
@@ -89,7 +89,7 @@ Desktop version: ![Desktop Screenshot](/Assets/Password_Generator_TEW_screenshot
 
 A gif visual demonstration is also provided as a guide:
 
-GIF GUIDE: ![gif demo](Assets/Screenshots_GIF/Gif_Demonstration.gif)
+GIF GUIDE: ![gif demo](assets/images/Password_generator_demo.gif)
 
 
 ======
