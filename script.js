@@ -16,28 +16,29 @@ function generatePassword() {
   
   var lengthOfPassword = window.prompt("How many characters long would you like your password to be?");
 
+  // if no length of password is in inputted or left blank, return to start
     if (!lengthOfPassword) {
       alert("please enter a number of characters between 8 - 128");
-      return finalPassword;
+      return finalPassword("");
     }
-
+// if length < 8 characters is in inputted, return to start
     if (lengthOfPassword < 8) {
      alert("Please select a length greater than 8 characters");
-    return;
+     return finalPassword("");
     } 
 
+    // if length > 128 characters is in inputted, return to start
     if (lengthOfPassword > 128) {
       alert("Please select a length less than 128 characters");
-      return;
+      return finalPassword("");
     }
 
+    // if special characters erroneously inputted, return to start
+    if (specialCharacter) {
+      alert("Please enter numerical values only");
+      return finalPassword("");
+    }
 
-
-
-  // FIX BUG: if no length of password is in inputted, return to start
-
-  // what does the parse int return?
-  // just one condition to check if (length > 8 && < 128)
 
   // fix bug: determine reponse if character length of password is cancel, or left empty
 
