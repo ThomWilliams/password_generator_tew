@@ -13,9 +13,13 @@ function generatePassword() {
   var characterOptions = "";
   var finalPassword = "";
   
-  var customerInput = prompt("How many characters long would you like your password to be?");
   
-  var lengthOfPassword = parseInt(customerInput);
+  var lengthOfPassword = window.prompt("How many characters long would you like your password to be?");
+
+    if (!lengthOfPassword) {
+      alert("please enter a number of characters between 8 - 128");
+      return finalPassword;
+    }
 
     if (lengthOfPassword < 8) {
      alert("Please select a length greater than 8 characters");
@@ -28,20 +32,6 @@ function generatePassword() {
     }
 
 
-/* FROM ALAN
-
-var customerInput = prompt("How many characters long would you like your password to be?");
-
-var lengthOfPassword = parseInt(customerInput);
-  if (lengthOfPassword ) {
-    // if the length of the password is less than 8 characters it is void //
-    // if number (type of string still)
-      // check the length of password
-    // if letter or a word or whitespace or characters %$£$^
-      // alert the user that they are no entering a number
-      // ask them for input again  
-  }
-  */
 
 
   // FIX BUG: if no length of password is in inputted, return to start
