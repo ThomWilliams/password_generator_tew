@@ -27,7 +27,7 @@ cd password_generator_tew
 code .
 ```
 
-The repository comprises a HTML index file, CSS style file, Javascript file, screenshot images, GIF demonstration video and this README.
+The repository comprises a HTML index file, CSS style file, Javascript file, screenshot images, GIF demonstration video and this README. A reset CSS file has also been added.
 
 ### Building
 
